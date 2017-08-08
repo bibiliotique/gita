@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title></title>
+    <style>
+        /*border: 1px solid red;*/
+        body {
+            text-align: center;
+        }
+        video, iframe {
+            border-radius: 5px;
+            max-width: 100%;
+        }
+        #searchcontainer {
+            width: 45%;
+            background-color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            display: inline-block;
+            bottom: 30%;
+            left: 30%;
+        }
+        .filters {
+            display: inline-block;
+            margin: 10px;
+        }
+        #mySubmit {
+            background-color: #337ab7;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <!--This is header-->
+    <div class="header">
+        <h2>ADOPET</h2>
+        <p><strong>non-profit pet adoption website</strong></p>
+    </div>
+
+    <!--This is nav-bar-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Videos</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Our Pet Videos</a></li>
+                        <li><a href="#">Pet Care Videos</a></li>
+                    </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">All Pet Care</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Dogs</a></li>
+                        <li><a href="#">Cats</a></li>
+                        <li><a href="#">Rabbits</a></li>
+                        <li><a href="#">Horses</a></li>
+                        <li><a href="#">Birds</a></li>
+                        <li><a href="#">Small & Furry Pets</a></li>
+                    </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Shelters & Rescues</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Finding an Animal Shelter or Rescue Group</a></li>
+                        <li><a href="#">Starting a Pet-Adoption Organization</a></li>
+                        <li><a href="#">Volunteering with Animals</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            
+            </div>
+        </div>
+    </nav>
+
+    <!--This is first video container-->
+    <div id="videocontainer">
+        <video autoplay muted loop><source src="https://www.rehome.adoptapet.com/videos/video-1.mp4" type="video/mp4"></video>
+    </div>
+    <div id="searchcontainer">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab1">FIND A PET</a></li>
+            <!--<li><a data-toggle="tab" href="#tab2">REHOME A PET</a></li>-->
+        </ul>
+
+        <div id="tab-content" class="tab-content">
+
+            <!--These are the filters of searching-->
+            <div id="filter1" class="filters">
+                <label for="myLocation">Where do you live?</label>
+                <div id="filter1" class="inputwrapper"><input type="text" id="myLocation" placeholder="Ex: Atlanta, GA or 30303" autocomplete="off"></div>
+            </div>
+
+            <div class="filters">
+                <label for="myType">What would you like the type of animal?</label>
+                <div id="filter2" class="inputwrapper">
+                    <select id="myType" name="animal" class="fap-type pet-types fap-field">
+                        <option value="" class="any">Any</option>
+                        <option value="dog" class="pet dog">Dog</option>
+                        <option value="cat" class="pet cat">Cat</option>
+                        <option value="rabbit" class="pet rabbit">Rabbit</option>
+                        <option value="smallFurry" class="pet small-furry">Small &amp; Furry</option>
+                        <option value="horse" class="pet horse">Horse</option>
+                        <option value="bird" class="pet birds">Bird</option>
+                        <option value="scalesFinsOther" class="pet reptile">Scales, Fins &amp; Others</option>
+                        <option value="barnyard" class="pet barnyard">Barnyard</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filters">
+                <label for="myBreed">Breed (<a>See All</a>)</label>
+                <div id="filter3" class="inputwrapper"><input type="text" id="myBreed"placeholder="Please select Type first" autocomplete="on"></div>
+            </div>
+
+            <!--<div data-toggle="dropdown">
+                Additional>>
+            </div>-->
+
+            <div class="filters">
+                <p>Age</p>
+                <div id="filter4" class="inputwrapper">
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="Any Age" /> Any Age</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="baby" /> Baby</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="young" /> Young</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="adult" /> Adult</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="senior" /> Senior</label>
+                </div>
+            </div>
+
+            <div class="filters">
+                <p>Sex</p>
+                <div id="filter5" class="inputwrapper">
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="sex" value="M" /> Male</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="sex" value="F" /> Female</label>
+                </div>
+            </div><br>
+
+            <div class="filters">
+                <p>Size</p>
+                <div id="filter6" class="inputwrapper">
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="size" value="S" /> Small</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="size" value="M" /> Medium</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="size" value="L" /> Large</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="size" value="XL" /> Extra-Large</label>
+                </div>
+            </div>
+
+            <input id="mySubmit" type="button" value="Finished">
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $("#mySubmit").click(function(){
+            var myLocation = $("#myLocation").val();
+            var myType = $("#myType").val();
+            var  myBreed = $("#myBreed").val();
+            var  myAge = $("input[name='age']:checked").val();
+            var  mySex = $("input[name='sex']:checked").val();
+            var  mySize = $("input[name='size']:checked").val();
+
+            $.getJSON("http://api.petfinder.com/pet.find?"
+            + "format=json"
+            + "&key=e8cd2b8110e058e1acbe6bc8a60d1649"
+            + "&location=" + myLocation
+            + "&animal=" + myType
+            + "&breed=" + myBreed
+            + "&age=" + myAge
+            + "&sex=" + mySex
+            + "&size=" + mySize 
+            + "&callback=?"
+            );
+            console.log(myLocation+"     "+myType+"     "+myBreed+"     "+myAge+"     "+mySex+"     "+mySize);
+            // .done(function(petApiData) {
+
+            // })
+        })
+    </script>
+</body>
+</html>
