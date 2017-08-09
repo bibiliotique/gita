@@ -142,7 +142,7 @@
             <div class="filters">
                 <p>Age</p>
                 <div id="filter4" class="inputwrapper">
-                    <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="Any Age" /> Any Age</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="" /> Any Age</label>
                     <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="baby" /> Baby</label>
                     <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="young" /> Young</label>
                     <label class="cbox"><input type="checkbox" class="fap-field" name="age" value="adult" /> Adult</label>
@@ -155,6 +155,7 @@
                 <div id="filter5" class="inputwrapper">
                     <label class="cbox"><input type="checkbox" class="fap-field" name="sex" value="M" /> Male</label>
                     <label class="cbox"><input type="checkbox" class="fap-field" name="sex" value="F" /> Female</label>
+                    <label class="cbox"><input type="checkbox" class="fap-field" name="sex" value="" /> Unknown</label>
                 </div>
             </div><br>
 
@@ -181,7 +182,11 @@
             var  mySex = $("input[name='sex']:checked").val();
             var  mySize = $("input[name='size']:checked").val();
 
-            $.getJSON("http://api.petfinder.com/pet.find?"
+            if (typeof myAge === 'undefined') myAge = "";
+            if (typeof mySex === 'undefined') mySex = "";
+            if (typeof mySize === 'undefined') mySize = "";
+
+            var myGet = $.getJSON("http://api.petfinder.com/pet.find?"
             + "format=json"
             + "&key=e8cd2b8110e058e1acbe6bc8a60d1649"
             + "&location=" + myLocation
@@ -191,12 +196,25 @@
             + "&sex=" + mySex
             + "&size=" + mySize 
             + "&callback=?"
-            );
-            console.log(myLocation+"     "+myType+"     "+myBreed+"     "+myAge+"     "+mySex+"     "+mySize);
-            // .done(function(petApiData) {
+            )
 
-            // })
-        })
+
+
+            console.log(myLocation+"     "+myType+"     "+myBreed+"     "+myAge+"     "+mySex+"     "+mySize);
+            
+            myGet.done(function(petApiData) {
+                // alert('Data retrieved!');
+                console.log(petApiData);
+            });
+
+            photo
+            name - descripttion
+            breed
+            age sex size
+            location icon
+            dogicon
+
+        });
     </script>
 </body>
 </html>
